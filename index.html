@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c35">
+  <title>کتابخانه تدریس | آرشیو صوتی دوستان</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="login-screen" id="loginScreen" aria-label="ورود به کتابخانه">
+    <div class="login-box">
+      <div class="login-mark">📚</div>
+      <h1>کتابخانه تدریس</h1>
+      <p>برای ورود، کد دسترسی را وارد کنید.</p>
+      <input class="login-input" id="accessCode" type="password" autocomplete="off" placeholder="کد دسترسی">
+      <button class="login-btn" id="loginBtn">ورود به کتابخانه</button>
+      <div class="login-error" id="loginError"></div>
+    </div>
+  </section>
+  <div class="topline"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand-mark">📚</span>
+        <span><b>کتابخانه تدریس</b><small>آرشیو صوتی کلاس‌ها</small></span>
+      </a>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" title="حالت شب/روز">☾</button>
+        <a class="pill-btn" href="#classes">مشاهده کلاس‌ها</a><button class="logout-btn" id="logoutBtn">خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-pattern"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+          <h1>آرشیوی آرام و منظم<br><span>برای شنیدن تدریس‌ها</span></h1>
+          <p>تدریس‌های کلاس‌های مختلف را یک‌جا جمع کرده‌ایم تا دوستان بتوانند هر زمان و هرجا، آنلاین گوش بدهند.</p>
+          <div class="hero-buttons">
+            <a class="primary-btn" href="#classes">🎧 شروع شنیدن</a>
+            <a class="secondary-btn" href="#about">درباره آرشیو</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="lantern">☼</div>
+          <div class="arabic">وَقُلْ رَبِّ زِدْنِي عِلْمًا</div>
+          <div class="line"></div>
+          <p>«و بگو: پروردگارا، بر دانشم بیفزا.»</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container stats">
+      <div><strong id="classCount">۵</strong><span>کلاس</span></div>
+      <div><strong id="lessonCount">۲۵</strong><span>جلسه نمونه</span></div>
+      <div><strong>🎧</strong><span>پخش آنلاین</span></div>
+    </section>
+
+    <section class="container section" id="classes">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">آرشیو</span>
+          <h2>کلاس‌ها</h2>
+        </div>
+        <div class="search">
+          <span>⌕</span><input id="search" placeholder="جستجوی کلاس یا درس...">
+        </div>
+      </div>
+      <div id="classGrid" class="class-grid"></div>
+    </section>
+
+    <section class="container section" id="lessons">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">جلسات</span>
+          <h2 id="lessonTitle">آخرین تدریس‌ها</h2>
+        </div>
+        <button class="text-btn" id="backBtn" hidden>← همه کلاس‌ها</button>
+      </div>
+      <div id="lessonList" class="lesson-list"></div>
+    </section>
+
+    <section class="container about section" id="about">
+      <div>
+        <span class="section-kicker">درباره</span>
+        <h2>یک کتابخانه ساده، برای استفاده جمعی</h2>
+        <p>این قالب برای آرشیو تدریس‌های صوتی دوستان طراحی شده است؛ بدون شلوغی و بدون امکانات اضافی. کافی است فایل‌های صوتی خودت را داخل پوشه <b>audio</b> قرار بدهی و اطلاعات درس‌ها را در فایل <b>data.js</b> وارد کنی.</p>
+      </div>
+      <div class="rules">
+        <div>🔒 <b>خصوصی و دوستانه</b><small>برای استفاده گروهی خودتان</small></div>
+        <div>🎧 <b>پخش مستقیم</b><small>بدون نیاز به دانلود</small></div>
+        <div>📱 <b>کاملاً موبایلی</b><small>مناسب گوشی و تبلت</small></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="player" id="player">
+    <div class="player-info"><span id="playerIcon">🎧</span><div><b id="nowTitle">هنوز درسی انتخاب نشده</b><small id="nowClass">یک جلسه را برای پخش انتخاب کنید</small></div></div>
+    <audio id="audio" controls preload="none"></audio>
+  </div>
+
+  <footer><div class="container">📚 کتابخانه تدریس <span>•</span> ساخته‌شده برای یادگیری جمعی</div></footer>
+  <script src="data.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
