@@ -1,5 +1,5 @@
 // فقط همین مقدار را تغییر بده
 // توجه: چون سایت روی GitHub Pages است، این رمز امنیت بانکی/واقعی نیست.
 const SITE_CONFIG = {
-  ACCESS_CODE: "۳۱۳"
+  ACCESS_CODE: "313"
 };
