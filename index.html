@@ -1,74 +1,141 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#123b36">
-<meta name="description" content="آرشیو خصوصی تدریس‌های کوثر ۵">
-<link rel="icon" href="logo.png">
-<title>آرشیو کوثر ۵</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d3b35">
+  <title>کتابخانه تدریس | کوثر ۵</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="loginView" class="login-screen">
-  <div class="login-card">
-    <div class="brand-mark"><img src="logo.png" alt="آرشیو کوثر ۵"></div>
-    <div class="eyebrow">آرشیو خصوصی تدریس‌ها</div>
-    <h1>آرشیو کوثر ۵</h1>
-    <p>برای ورود، کد دسترسی خود را وارد کنید.</p>
-    <input id="codeInput" type="password" inputmode="text" autocomplete="off" placeholder="کد دسترسی">
-    <button id="loginBtn">ورود به کتابخانه</button>
-    <div id="loginError" class="error"></div>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="کتابخانه تدریس">
+        <img src="logo.png" alt="لوگوی کتابخانه" onerror="this.style.display='none'">
+        <span class="brand-mark">ک</span>
+        <span>
+          <strong>کتابخانه تدریس</strong>
+          <small>آرشیو کوثر ۵</small>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a class="active" href="#courses">درس‌ها</a>
+        <a href="#continue">ادامه مطالعه</a>
+        <a href="#about">درباره</a>
+      </nav>
+
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="تغییر حالت نمایش">☾</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">آرشیو صوتی ترم ۵</span>
+          <h1>یادگیری را<br><em>منظم‌تر</em> ادامه بده.</h1>
+          <p>همه‌ی جلسات درسی‌ات را یکجا داشته باش؛ با جست‌وجوی سریع، ادامه از آخرین جلسه و پخش‌کننده‌ای که مسیر مطالعه را برایت ساده می‌کند.</p>
+
+          <div class="hero-actions">
+            <a class="primary-btn" href="#courses">مشاهده درس‌ها <span>←</span></a>
+            <a class="ghost-btn" href="#continue">ادامه آخرین جلسه</a>
+          </div>
+
+          <div class="stats">
+            <div><b>۷</b><span>درس</span></div>
+            <div><b>۷۰۰+</b><span>جلسه صوتی</span></div>
+            <div><b>۴۰</b><span>دقیقه میانگین</span></div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="نمایش مسیر مطالعه">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="glass-card">
+            <div class="mini-top">
+              <span class="live-dot"></span>
+              <span>در حال یادگیری</span>
+              <span class="mini-time">۴۰:۰۰</span>
+            </div>
+            <div class="book-icon">◈</div>
+            <span class="mini-label">ادامه از آخرین جلسه</span>
+            <h3 id="heroCourse">اصول فقه ۲</h3>
+            <p>استاد بهشتی‌نژاد · جلسه ۱۲</p>
+            <div class="progress"><i style="width:62%"></i></div>
+            <div class="mini-bottom">
+              <span>۲۴ دقیقه باقی‌مانده</span>
+              <button class="play-circle" id="heroPlay" type="button">▶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="continue">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">مسیر تو</span>
+            <h2>ادامه از جایی که ماندی</h2>
+          </div>
+          <a href="#courses">همه درس‌ها ←</a>
+        </div>
+
+        <article class="continue-card">
+          <div class="course-symbol">اص</div>
+          <div class="continue-info">
+            <span>آخرین جلسه</span>
+            <h3>اصول فقه ۲ — جلسه ۱۲</h3>
+            <p>استاد بهشتی‌نژاد</p>
+          </div>
+          <div class="continue-progress">
+            <div><span>۶۲٪</span><span>۲۴ دقیقه باقی‌مانده</span></div>
+            <div class="progress"><i style="width:62%"></i></div>
+          </div>
+          <button class="resume-btn" id="resumeBtn" type="button">ادامه پخش <span>▶</span></button>
+        </article>
+      </section>
+
+      <section class="section" id="courses">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">آرشیو دروس</span>
+            <h2>درس‌ها</h2>
+          </div>
+          <div class="search">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="جست‌وجوی درس یا استاد..." aria-label="جست‌وجو">
+          </div>
+        </div>
+        <div class="course-grid" id="courseGrid"></div>
+      </section>
+
+      <section class="section feature-strip">
+        <div class="feature">
+          <span class="feature-icon">◷</span>
+          <div><h3>ادامه از آخرین نقطه</h3><p>موقعیت پخش هر جلسه برایت ذخیره می‌شود.</p></div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">⌕</span>
+          <div><h3>جست‌وجوی سریع</h3><p>درس و استاد موردنظرت را در چند ثانیه پیدا کن.</p></div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">◉</span>
+          <div><h3>مناسب موبایل</h3><p>طراحی شده برای استفاده راحت با گوشی.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="about">
+      <div>
+        <strong>کتابخانه تدریس</strong>
+        <p>آرشیو صوتی آموزشی کوثر ۵</p>
+      </div>
+      <span>ساخته شده برای یک مطالعه منظم‌تر ✦</span>
+    </footer>
   </div>
-</div>
 
-<div id="appView" class="app hidden">
-  <header class="topbar">
-    <div class="top-brand"><img src="logo.png" alt=""><div><div class="mini-title">کتابخانه صوتی خصوصی</div><h1>آرشیو کوثر ۵</h1></div></div>
-    <button id="logoutBtn" class="ghost">خروج</button>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="pill">کتابخانه صوتی خصوصی · ۱۴۰۵</span>
-        <h2>شنیدن، آموختن، مرور کردن</h2>
-        <p>آرشیو منظم تدریس‌ها، برای دسترسی آسان و ادامه مطالعه از همان جایی که متوقف شدید.</p>
-      </div>
-      <div class="hero-seal"><img src="logo.png" alt=""></div>
-    </section>
-
-    <div class="section-intro"><div><div class="mini-title">فهرست دروس</div><h2>آرشیو آموزشی</h2></div><div class="tiny-note">۷ درس · ۷۰۰ جلسه</div></div>
-    <div class="search-wrap">
-      <span>⌕</span>
-      <input id="searchInput" placeholder="جست‌وجوی درس یا استاد...">
-    </div>
-
-    <section id="coursesGrid" class="courses-grid"></section>
-
-    <section id="coursePanel" class="course-panel hidden">
-      <button id="backBtn" class="back">→ بازگشت به درس‌ها</button>
-      <div class="course-heading">
-        <div id="courseIcon" class="course-big-icon"></div>
-        <div><div class="mini-title">درس</div><h2 id="courseTitle"></h2><div id="courseTeacher" class="teacher-line"></div></div>
-      </div>
-      <div id="resumeBox" class="resume-box hidden"></div>
-      
-      <div class="lesson-tools">
-        <div class="search-wrap small"><span>⌕</span><input id="lessonSearch" placeholder="جستجوی جلسه..."></div>
-        <input id="lessonNumber" class="number-filter" inputmode="numeric" placeholder="شماره جلسه">
-        <span id="lessonCount" class="count-badge"></span>
-      </div>
-      <div class="notice">🎧 برای هر جلسه، فایل صوتی بعداً به همین بخش متصل می‌شود. مدت تقریبی هر جلسه: ۴۰ دقیقه.</div>
-      <div id="lessonsList" class="lessons"></div>
-    </section>
-  </main>
-
-  <footer>آرشیو کوثر ۵ · برای استفاده دوستان و اعضای مجموعه</footer>
-</div>
-
-<script src="config.js"></script>
-<script src="data.js"></script>
-<script src="app.js"></script>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
 </body>
 </html>
